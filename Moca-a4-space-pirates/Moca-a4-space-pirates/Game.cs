@@ -18,7 +18,9 @@ namespace MohawkGame2D
         /// </summary>
         public void Setup()
         {
-
+            //add basic setup information
+            Window.SetSize(800, 600);
+            Window.SetTitle("SPACE PIRATES");
         }
 
         /// <summary>
@@ -26,6 +28,7 @@ namespace MohawkGame2D
         /// </summary>
         public void Update()
         {
+            Window.ClearBackground(Color.White);
             //can you see this
         }
     }
