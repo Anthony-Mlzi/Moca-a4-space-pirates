@@ -18,7 +18,8 @@ namespace MohawkGame2D
         /// </summary>
         public void Setup()
         {
-
+            Window.SetSize(800, 600);
+            Window.SetTitle("SPACE PIRATES");
         }
 
         /// <summary>
