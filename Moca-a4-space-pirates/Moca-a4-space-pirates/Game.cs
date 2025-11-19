@@ -30,6 +30,7 @@ namespace MohawkGame2D
         {
             Window.ClearBackground(Color.White);
             //can you see this
+            //add stuff
         }
     }
 
