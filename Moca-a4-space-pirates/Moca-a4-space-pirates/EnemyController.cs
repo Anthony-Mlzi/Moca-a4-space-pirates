@@ -8,5 +8,13 @@ namespace Moca_a4_space_pirates
 {
     internal class EnemyController
     {
+        public void setup()
+        {
+
+        }
+        public void update()
+        {
+
+        }
     }
 }
