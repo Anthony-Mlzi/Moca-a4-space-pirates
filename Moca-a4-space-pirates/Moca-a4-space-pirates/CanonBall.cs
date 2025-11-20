@@ -9,8 +9,8 @@ namespace MohawkGame2D
 {
     public class CanonBall
     {
-        Vector2 position;
-        Vector2 velocity;
+        public Vector2 position;
+        public Vector2 velocity;
 
         public void Setup()
         {
