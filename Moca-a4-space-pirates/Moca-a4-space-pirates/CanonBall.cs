@@ -1,12 +1,38 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Moca_a4_space_pirates
+namespace MohawkGame2D
 {
-    internal class CanonBall
+    public class CanonBall
     {
+        Vector2 position;
+        Vector2 velocity;
+
+        public void Setup()
+        {
+
+        }
+
+        public void Update()
+        {
+            ProcessPhysics();
+            DrawCanonBall();
+        }
+
+        void ProcessPhysics()
+        {
+            position += velocity * Time.DeltaTime;
+        }
+
+        void DrawCanonBall()
+        {
+            Draw.LineSize = 2;
+            Draw.FillColor = Color.Black;
+            Draw.Circle(position, 7.0f);
+        }
     }
 }
