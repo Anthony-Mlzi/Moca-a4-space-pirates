@@ -6,12 +6,7 @@ using System.Threading.Tasks;
 
 namespace MohawkGame2D
 {
-    public class Environment
+    public class Buttons
     {
-        public Environment() 
-        { 
-            stars = new Stars 
-                Random.float ()
-        }
     }
 }

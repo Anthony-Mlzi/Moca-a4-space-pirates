@@ -11,7 +11,14 @@ namespace MohawkGame2D
     public class Game
     {
         // Place your variables here:
+        bool titleScreen;
+        bool gameGoing;
+        bool rulesScreen;
 
+        Buttons[] titleScreenButtons =
+        {
+
+        };
 
         /// <summary>
         ///     Setup runs once before the game loop begins.
@@ -20,6 +27,9 @@ namespace MohawkGame2D
         {
             Window.SetSize(800, 600);
             Window.SetTitle("SPACE PIRATES");
+            titleScreen = true;
+            gameGoing = false;
+            rulesScreen = false;
         }
 
         /// <summary>
