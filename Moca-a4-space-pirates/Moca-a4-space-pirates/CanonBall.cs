@@ -12,6 +12,8 @@ namespace MohawkGame2D
         public Vector2 position;
         public Vector2 velocity;
 
+        float speed = 400.0f;
+
         public void Setup()
         {
 
@@ -25,7 +27,7 @@ namespace MohawkGame2D
 
         void ProcessPhysics()
         {
-            position += velocity * Time.DeltaTime;
+            position += speed * velocity * Time.DeltaTime;
         }
 
         void DrawCanonBall()
