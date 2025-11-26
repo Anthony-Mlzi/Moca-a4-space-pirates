@@ -21,7 +21,7 @@ namespace MohawkGame2D
         }
         public void setup()
         {
-            
+                     
             CursorPos = new Vector2(Input.GetMouseX(), Input.GetMouseY());
 
         }
@@ -48,6 +48,20 @@ namespace MohawkGame2D
 
         void DrawCannon()
         {
+            Vector2 CannonCenter = new Vector2(Window.Width / 2, Window.Height - 20f);
+
+            float cannonWidth = 50;
+            float cannonHeight = 100;
+            float rotation = MathF.Atan2(CursorPos.Y - CannonCenter.Y, CursorPos.X - CannonCenter.X);
+            Vector2 top = CannonCenter + new Vector2(
+                MathF.Cos(rotation) * cannonHeight / 2,
+                MathF.Sin(rotation) * cannonWidth / 2);
+
+            Draw.LineColor = Color.Gray;
+            Draw.LineSize = 10;
+            Draw.Line(CannonCenter, top);
+            Draw.FillColor = Color.Black;
+            Draw.Circle(CannonCenter, cannonWidth / 4);
 
         }
        
