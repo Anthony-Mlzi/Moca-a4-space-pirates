@@ -10,8 +10,7 @@ namespace MohawkGame2D
 {
     public class PlayerController
     {
-        float CursorPosX = Input.GetMouseX();
-        float CursorPosY = Input.GetMouseY();
+        Vector2 CursorPos;
         Vector2 CannonPos;
         
         public void setup()
