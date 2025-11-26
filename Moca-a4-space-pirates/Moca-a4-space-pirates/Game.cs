@@ -17,8 +17,13 @@ namespace MohawkGame2D
 
         Buttons[] titleScreenButtons =
         {
-
+            new Buttons(new Vector2(350, 385), new Vector2(100, 30), "PLAY"),
+            new Buttons(new Vector2(350, 430), new Vector2(100, 20), new string("RULES"))
         };
+        //maybe a back button?
+
+
+        // environment variable goes here
 
         /// <summary>
         ///     Setup runs once before the game loop begins.
@@ -30,6 +35,9 @@ namespace MohawkGame2D
             titleScreen = true;
             gameGoing = false;
             rulesScreen = false;
+
+            // create the environment object here
+            // run the environment Setup()
         }
 
         /// <summary>
@@ -37,8 +45,48 @@ namespace MohawkGame2D
         /// </summary>
         public void Update()
         {
-            //can you see this
-        }
-    }
+            if (titleScreen)
+            {
+                Window.ClearBackground(Color.White);
 
+                Text.Size = 40;
+                Text.Color = Color.Black;
+                Text.Draw("My Space Game", new Vector2(150, 200));
+
+                Text.Size = 20;
+                Text.Color = Color.Black;
+                Text.Draw("Press SPACE to start", new Vector2(250, 400));
+
+                if (Input.IsKeyboardKeyPressed(KeyboardInput.Space))
+                {
+                    titleScreen = false;
+                    gameGoing = true; // switch to main game
+                }
+            }
+            else if (gameGoing)
+            {
+                Window.ClearBackground(Color.Black);
+
+                Text.Size = 20;
+                Text.Color = Color.White;
+                Text.Draw("Game is running!", new Vector2(300, 300));
+                // TODO: add your gameplay drawing here
+
+                // CALL environment.Update()
+            }
+            else if (rulesScreen)
+            {
+                Window.ClearBackground(Color.Gray);
+
+                Text.Size = 20;
+                Text.Color = Color.Black;
+                Text.Draw("Rules go here...", new Vector2(200, 200));
+                // TODO: add back button logic
+            }
+        }
+
+    }
 }
+
+
+
