@@ -10,22 +10,31 @@ namespace MohawkGame2D
 {
     public class PlayerController
     {
+        
         Vector2 CursorPos;
         Vector2 CannonPos;
+        float cursorSpeed = 8.0f; // have the cursor follow behind mouseposition to make aiming more of a challenge
+
+        public Vector2 CursorDelay(Vector2 CurrentCursorPos, Vector2 MousePos, float smoothing)
+        {
+            return CurrentCursorPos + (MousePos - CurrentCursorPos) * smoothing;
+        }
         public void setup()
         {
             
             CannonPos = new Vector2(400, 500);
-            
-            
+            CursorPos = new Vector2(Input.GetMouseX(), Input.GetMouseY());
+
         }
 
 
         public void update()
         {
-            CursorPos = new Vector2(Input.GetMouseX(), Input.GetMouseY());
+            Vector2 MousePos = new Vector2(Input.GetMouseX(), Input.GetMouseY());
+            float smoothing = cursorSpeed * Time.DeltaTime;
+            CursorPos = CursorDelay(CursorPos, MousePos, smoothing);
             DrawCursor();
-
+            DrawCannon();
 
         }
 
@@ -42,5 +51,7 @@ namespace MohawkGame2D
         {
 
         }
+       
+
     }
 }
