@@ -12,10 +12,10 @@ namespace MohawkGame2D
     {
         Vector2 CursorPos;
         Vector2 CannonPos;
-        
         public void setup()
         {
-            CannonPos = new Vector2();
+            
+            CannonPos = new Vector2(400, 500);
             
             
         }
@@ -23,18 +23,19 @@ namespace MohawkGame2D
 
         public void update()
         {
-            DrawCursor(CursorPosX, CursorPosY);
+            CursorPos = new Vector2(Input.GetMouseX(), Input.GetMouseY());
+            DrawCursor();
 
 
         }
 
-        void DrawCursor(float x, float y)
+        void DrawCursor()
         {
             Color deepred = new Color("#A83A27");
             Draw.FillColor = Color.Clear;
             Draw.LineColor = deepred;
             Draw.LineSize = 2;
-            Draw.Circle(CursorPosX, CursorPosY, 10);
+            Draw.Circle(CursorPos, 10);
         }
 
         void DrawCannon()

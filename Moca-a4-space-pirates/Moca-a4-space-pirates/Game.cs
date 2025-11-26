@@ -11,7 +11,7 @@ namespace MohawkGame2D
     public class Game
     {
         // Place your variables here:
-        PlayerController? player;
+        PlayerController player;
 
         /// <summary>
         ///     Setup runs once before the game loop begins.
