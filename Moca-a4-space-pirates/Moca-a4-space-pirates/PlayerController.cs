@@ -1,13 +1,46 @@
-﻿using System;
+﻿using MohawkGame2D;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Moca_a4_space_pirates
+namespace MohawkGame2D
 {
-    internal class PlayerController
+    public class PlayerController
     {
+        float CursorPosX = Input.GetMouseX();
+        float CursorPosY = Input.GetMouseY();
+        Vector2 CannonPos;
+        
+        public void setup()
+        {
+            CannonPos = new Vector2();
+            
+            
+        }
+
+
+        public void update()
+        {
+            DrawCursor(CursorPosX, CursorPosY);
+
+
+        }
+
+        void DrawCursor(float x, float y)
+        {
+            Color deepred = new Color("#A83A27");
+            Draw.FillColor = Color.Clear;
+            Draw.LineColor = deepred;
+            Draw.LineSize = 2;
+            Draw.Circle(CursorPosX, CursorPosY, 10);
+        }
+
+        void DrawCannon()
+        {
+
+        }
     }
 }
-// hello
