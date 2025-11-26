@@ -15,14 +15,13 @@ namespace MohawkGame2D
         Vector2 CannonPos;
         float cursorSpeed = 8.0f; // have the cursor follow behind mouseposition to make aiming more of a challenge
 
-        public Vector2 CursorDelay(Vector2 CurrentCursorPos, Vector2 MousePos, float smoothing)
+        public Vector2 CursorDelay(Vector2 OldCursorPos, Vector2 MousePos, float smoothing)
         {
-            return CurrentCursorPos + (MousePos - CurrentCursorPos) * smoothing;
+            return OldCursorPos + (MousePos - OldCursorPos) * smoothing;
         }
         public void setup()
         {
             
-            CannonPos = new Vector2(400, 500);
             CursorPos = new Vector2(Input.GetMouseX(), Input.GetMouseY());
 
         }
