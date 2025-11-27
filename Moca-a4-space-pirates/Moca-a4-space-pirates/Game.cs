@@ -11,7 +11,7 @@ namespace MohawkGame2D
     public class Game
     {
         // Place your variables here:
-        CanonBall[] canonBalls = new CanonBall[0];
+        CanonBall[] canonBalls = new CanonBall[10];
         int canonBallIndex = 0;
 
         /// <summary>
@@ -29,11 +29,17 @@ namespace MohawkGame2D
         /// </summary>
         public void Update()
         {
+            Window.ClearBackground(Color.White);
 
- 
+            // calls cannonball update for all currently present cannonballs
+            for (int i = 0; i < canonBallIndex; i++)
+            {
+                canonBalls[i].Update();
+            }
 
             //Making code for CanonBall input.
             if (Input.IsMouseButtonPressed(MouseInput.Left)) SpawnCanonBall();
+
           
 
         }
@@ -49,7 +55,7 @@ namespace MohawkGame2D
 
             if (canonBallIndex >= canonBalls.Length) canonBallIndex = 0;
 
-            Window.ClearBackground(Color.White);
+            
           
 
         }
