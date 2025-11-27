@@ -11,7 +11,6 @@ namespace MohawkGame2D
     public class Game
     {
         // Place your variables here:
-        PlayerController player;
 
         /// <summary>
         ///     Setup runs once before the game loop begins.
@@ -22,8 +21,7 @@ namespace MohawkGame2D
             Window.SetSize(800, 600);
             Window.SetTitle("SPACE PIRATES");
 
-            player = new PlayerController();
-            player.setup();
+            
         }
 
         /// <summary>
@@ -33,7 +31,7 @@ namespace MohawkGame2D
         {
             Window.ClearBackground(Color.White);
             //can you see this
-            player.update();
+       
         }
     }
 
