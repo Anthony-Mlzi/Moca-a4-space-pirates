@@ -22,6 +22,8 @@ namespace MohawkGame2D
             //add basic setup information
             Window.SetSize(800, 600);
             Window.SetTitle("SPACE PIRATES");
+
+            
         }
 
         /// <summary>
@@ -50,8 +52,8 @@ namespace MohawkGame2D
             if (canonBallIndex >= canonBalls.Length) canonBallIndex = 0;
 
             Window.ClearBackground(Color.White);
-          
-
+            //can you see this
+       
         }
     }
 
