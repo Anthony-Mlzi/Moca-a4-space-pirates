@@ -12,6 +12,7 @@ namespace MohawkGame2D
     {
         // Place your variables here:
         CanonBall[] canonBalls = new CanonBall[0];
+        EnemyController enemy = new EnemyController();
         int canonBallIndex = 0;
 
         /// <summary>
@@ -29,7 +30,9 @@ namespace MohawkGame2D
         /// </summary>
         public void Update()
         {
+            Window.ClearBackground(Color.White);
 
+            enemy.update();
  
 
             //Making code for CanonBall input.
@@ -50,8 +53,6 @@ namespace MohawkGame2D
             if (canonBallIndex >= canonBalls.Length) canonBallIndex = 0;
 
             Window.ClearBackground(Color.White);
-          
-
         }
     }
 
