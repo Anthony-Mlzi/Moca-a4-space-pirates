@@ -30,6 +30,7 @@ namespace MohawkGame2D
         public void Update()
         {
 
+ 
 
             //Making code for CanonBall input.
             if (Input.IsMouseButtonPressed(MouseInput.Left)) SpawnCanonBall();
@@ -37,6 +38,7 @@ namespace MohawkGame2D
 
         }
 
+        //Set up spawn for CanonBall.
         void SpawnCanonBall()
         {
             CanonBall canonBall = new CanonBall();
@@ -46,9 +48,10 @@ namespace MohawkGame2D
             canonBallIndex++;
 
             if (canonBallIndex >= canonBalls.Length) canonBallIndex = 0;
+
             Window.ClearBackground(Color.White);
-            //can you see this
-            //add stuff
+          
+
         }
     }
 
