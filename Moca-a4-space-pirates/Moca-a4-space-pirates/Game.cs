@@ -11,6 +11,9 @@ namespace MohawkGame2D
     public class Game
     {
         // Place your variables here:
+        CanonBall[] canonBalls = new CanonBall[0];
+        EnemyController enemy = new EnemyController();
+        int canonBallIndex = 0;
         Environment environment = new Environment();
 
         bool titleScreen;
@@ -50,6 +53,33 @@ namespace MohawkGame2D
         /// </summary>
         public void Update()
         {
+            Window.ClearBackground(Color.White);
+
+            enemy.update();
+ 
+
+            //Making code for CanonBall input.
+            if (Input.IsMouseButtonPressed(MouseInput.Left)) SpawnCanonBall();
+          
+
+        }
+
+        //Set up spawn for CanonBall.
+        void SpawnCanonBall()
+        {
+            CanonBall canonBall = new CanonBall();
+            canonBall.position = Window.Size / 2.0f;
+
+            canonBalls[canonBallIndex] = canonBall;
+            canonBallIndex++;
+
+            if (canonBallIndex >= canonBalls.Length) canonBallIndex = 0;
+
+            Window.ClearBackground(Color.White);
+            //can you see this
+       
+        }
+    }
             Console.WriteLine("null");
 
             if (titleScreen)
