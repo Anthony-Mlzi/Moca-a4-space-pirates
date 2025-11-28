@@ -11,25 +11,16 @@ namespace MohawkGame2D
     public class Game
     {
         // Place your variables here:
+        bool titleScreen;
+        bool gameGoing;
+        bool rulesScreen;
+        //maybe a back button?
+
+        // environment variable goes here
         CanonBall[] canonBalls = new CanonBall[0];
         EnemyController enemy = new EnemyController();
         int canonBallIndex = 0;
         Environment environment = new Environment();
-
-        bool titleScreen;
-        bool gameGoing;
-        bool rulesScreen;
-
-        Buttons[] titleScreenButtons =
-        {
-            new Buttons(new Vector2(350, 385), new Vector2(100, 30), "PLAY"),
-            new Buttons(new Vector2(350, 430), new Vector2(100, 20), new string("RULES"))
-        };
-        //maybe a back button?
-
-
-        // environment variable goes here
-
         /// <summary>
         ///     Setup runs once before the game loop begins.
         /// </summary>
@@ -42,8 +33,6 @@ namespace MohawkGame2D
             gameGoing = false;
             rulesScreen = false;
 
-            // create the environment object here
-
             // run the environment Setup()
             environment.Setup();
         }
@@ -53,35 +42,6 @@ namespace MohawkGame2D
         /// </summary>
         public void Update()
         {
-            Window.ClearBackground(Color.White);
-
-            enemy.update();
- 
-
-            //Making code for CanonBall input.
-            if (Input.IsMouseButtonPressed(MouseInput.Left)) SpawnCanonBall();
-          
-
-        }
-
-        //Set up spawn for CanonBall.
-        void SpawnCanonBall()
-        {
-            CanonBall canonBall = new CanonBall();
-            canonBall.position = Window.Size / 2.0f;
-
-            canonBalls[canonBallIndex] = canonBall;
-            canonBallIndex++;
-
-            if (canonBallIndex >= canonBalls.Length) canonBallIndex = 0;
-
-            Window.ClearBackground(Color.White);
-            //can you see this
-       
-        }
-    }
-            Console.WriteLine("null");
-
             if (titleScreen)
             {
                 Console.WriteLine("title running");
@@ -101,6 +61,7 @@ namespace MohawkGame2D
                     gameGoing = true; // switch to main game
                 }
             }
+
             else if (gameGoing)
             {
                 Console.WriteLine("game going");
@@ -114,6 +75,7 @@ namespace MohawkGame2D
                 // CALL environment.Update()
                 environment.Update();
             }
+
             else if (rulesScreen)
             {
                 Console.WriteLine("rules");
@@ -124,9 +86,22 @@ namespace MohawkGame2D
                 Text.Draw("Rules go here...", new Vector2(200, 200));
                 // TODO: add back button logic
             }
+
         }
 
+        //Set up spawn for CanonBall.
+        void SpawnCanonBall()
+        {
+            CanonBall canonBall = new CanonBall();
+            canonBall.position = Window.Size / 2.0f;
+
+            canonBalls[canonBallIndex] = canonBall;
+            canonBallIndex++;
+
+            if (canonBallIndex >= canonBalls.Length) canonBallIndex = 0;
+        }
     }
+
 }
 
 
