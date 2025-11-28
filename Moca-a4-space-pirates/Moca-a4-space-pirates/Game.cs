@@ -11,6 +11,8 @@ namespace MohawkGame2D
     public class Game
     {
         // Place your variables here:
+        Environment environment = new Environment();
+
         bool titleScreen;
         bool gameGoing;
         bool rulesScreen;
@@ -32,12 +34,15 @@ namespace MohawkGame2D
         {
             Window.SetSize(800, 600);
             Window.SetTitle("SPACE PIRATES");
+
             titleScreen = true;
             gameGoing = false;
             rulesScreen = false;
 
             // create the environment object here
+
             // run the environment Setup()
+            environment.Setup();
         }
 
         /// <summary>
@@ -45,8 +50,11 @@ namespace MohawkGame2D
         /// </summary>
         public void Update()
         {
+            Console.WriteLine("null");
+
             if (titleScreen)
             {
+                Console.WriteLine("title running");
                 Window.ClearBackground(Color.White);
 
                 Text.Size = 40;
@@ -65,6 +73,7 @@ namespace MohawkGame2D
             }
             else if (gameGoing)
             {
+                Console.WriteLine("game going");
                 Window.ClearBackground(Color.Black);
 
                 Text.Size = 20;
@@ -73,9 +82,11 @@ namespace MohawkGame2D
                 // TODO: add your gameplay drawing here
 
                 // CALL environment.Update()
+                environment.Update();
             }
             else if (rulesScreen)
             {
+                Console.WriteLine("rules");
                 Window.ClearBackground(Color.Gray);
 
                 Text.Size = 20;
